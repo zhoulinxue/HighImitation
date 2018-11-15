@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="ph_blue">#007AFF</color>
+    <color name="ph_bg">#FFFFFF</color>
+    <color name="chat_text_color">#417505</color>
+    <color name="chat_live_color">#c0eb75</color>
+
+    <color name="ph_gray_A0979D9F">#A0979D9F</color>
+    <color name="ph_yellow_gray_F2CA7E">#F2CA7E</color>
+    <color name="ph_black_293539">#293539</color>
+    <color name="ph_gray_979D9F">#979D9F</color>
+    <color name="ph_gray_999999">#999999</color>
+    <color name="ph_gray_888888">#888888</color>
+    <color name="ph_gray_B0B0B0">#B0B0B0</color>
+    <color name="ph_gray_F3F3F3">#F3F3F3</color>
+    <color name="shop_green">#2F9E44</color>
+    <color name="zan_num">#C39F57</color>
+
+
+    <!--//透明度80%-->
+    <color name="ph_white_20">#33FFFFFF</color>
+    <color name="ph_back_030303">#F2030303</color>
+    <color name="ph_gray_white">#F1F1F1</color>
+    <color name="ph_line_bg">#E4E4E4</color>
+    <color name="ph_bg_light">#F3F3F3</color>
+    <color name="ph_bg_light_transparency">#80F3F3F3</color>
+    <color name="ph_white_light_bg">#F7F7F7</color>
+    <color name="ph_yellow_gray">#A78845</color>
+    <color name="ph_yellow_gray_light">#C4A051</color>
+    <color name="ph_yellow_gray_white">#F2CA7E</color>
+    <color name="ph_yellow_white">#FCFFFE</color>
+    <color name="ph_black_light">#636363</color>
+    <color name="ph_black">#000000</color>
+    <color name="ph_black80">#80000000</color>
+    <color name="ph_black_333333">#333333</color>
+    <color name="ph_black_gray">#6A7275</color>
+    <color name="ph_white_gray">#C5C9CA</color>
+    <color name="ph_whiter_light">#979D9F</color>
+    <color name="ph_hint">#C5C9CA</color>
+    <color name="ph_shadow_white">#e1e6e7</color>
+    <color name="ph_green">#4CB217</color>
+    <color name="ph_title_color">#293539</color>
+    <color name="ph_text_color">#293539</color>
+    <color name="ph_red_CC000D">#CC000D</color>
+    <color name="ph_red">#F03E3E</color>
+    <color name="delete_auction_red">#AD000B</color>
+    <color name="ph_red_order_remand">#E03131</color>
+    <color name="ph_red_gray">#AD000B</color>
+    <color name="ph_green_gray">#66A80F</color>
+    <color name="ph_green_white">#04BE02</color>
+    <color name="ph_green_DEFF62">#DEFF62</color>
+    <color name="ph_og">#FC8426</color>
+    <color name="ph_og_light">#FFB317</color>
+    <color name="ph_og_live">#F4A104</color>
+    <color name="ph_yellow_C69E61">#C69E61</color>
+    <color name="ph_white_BEBEBE">#BEBEBE</color>
+    <color name="ph_black_gray_111111">#80111111</color>
+    <color name="ph_light_background">#80FCEFD3</color>
+
+    <color name="whites">#ffffff</color>
+    <color name="gray">#AFAFAF</color>
+    <color name="yellow">#F99503</color>
+    <color name="gray_color">#ffe8ecef</color>
+    <color name="gray_color_d6d6d6">#D6D6D6</color>
+    <color name="bg_sort_color">#EDEDED</color>
+    <color name="ph_gray">#7B7B7B</color>
+    <color name="ph_translation_half_shallow_white">#08ffffff</color>//半透明
+    <!--ios风格dialog-->
+    <color name="common_white_backgroud">#e8e8e8</color>
+    <color name="common_background">#EFEFEF</color>
+
+    <!--聊天-->
+    <color name="ph_chat_ob_bg">#C5C9CA</color>
+    <color name="ph_translation">#00000000</color>//透明
+    <color name="ph_translation_half">#e0000000</color>//半透明
+    <color name="ph_translation_half_shallow">#80000000</color>//半透明
+    <color name="white_0.5">#80ffffff</color>
+    <color name="black_0.6">#66000000</color>
+    <color name="black_0.7">#B3000000</color>
+
+    <color name="color_red_ccfa3c55">#ccfa3c55</color>
+    <color name="notice_text_color">#6A7275</color>
+
+    <color name="title_color">#5D3508</color>
+    <color name="main_color_bg">#FFEDA7</color>
+
+</resources>
