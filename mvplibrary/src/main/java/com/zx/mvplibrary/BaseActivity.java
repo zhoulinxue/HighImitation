@@ -26,11 +26,12 @@ public abstract class BaseActivity extends InternationalizationActivity implemen
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
+
         mHandler = new Handler();
         mDialog = onCreatCustomDialog();
         //设置布局文件
         setContentView(initLayout());
+        ButterKnife.bind(this);
         //初始化view
         onCreateView();
         //获取已保存数据、或者网络请求

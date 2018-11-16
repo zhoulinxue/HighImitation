@@ -30,6 +30,9 @@ public class MemoEdite extends AppCompatEditText {
     private int mLines;
     private Bitmap mLineBitmap;
     private Rect mLineSrcRect, mLineDesRect;
+    int mStart;
+    float  mSpace;
+    private int mTextSize;
 
     public MemoEdite(Context context) {
         super(context);
@@ -49,39 +52,58 @@ public class MemoEdite extends AppCompatEditText {
         //命名空间（别告诉我不熟悉）
         String namespace = "http://schemas.android.com/apk/res/android";
         //获取属性中设置的最大长度
-        int textSize = a.getAttributeIntValue(namespace, "textSize", 14);
-
-        mLineHight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, textSize, context.getResources().getDisplayMetrics());
-
+        mTextSize= a.getAttributeIntValue(namespace, "textSize", 14);
+        int lineSpace = a.getAttributeIntValue(namespace, "lineSpacingExtra", 5);
+        mSpace= TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, lineSpace, context.getResources().getDisplayMetrics());
         mLineBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.line_p);
         mLineSrcRect = new Rect(0, 0, mLineBitmap.getWidth(), mLineBitmap.getHeight());
+
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 mHight = getMeasuredHeight();
                 mWidth = getMeasuredWidth();
-                mLines = (int) ((mHight - (getPaddingTop() + getPaddingBottom())) / mLineHight);
-                AppLog.print(TAG, mWidth + "!!!" + mHight + "!!!" + mLines);
+                mLineHight=getLineHeight();
+                mLines = (int) (mHight/ mLineHight);
+                mStart= (int) (getFontHeight(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, mTextSize, getResources().getDisplayMetrics()))-mSpace);
             }
         });
+
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         for (int i = 0; i < mLines; i++) {
-            int topStart = 0;
+            int topStart=0;
             if (topStart < mHight) {
-                if (i != 0) {
-                    topStart = 2 * (int) (i * mLineHight);
-                    mLineDesRect = new Rect(0, topStart, mWidth, (int) (topStart + 2 * mLineHight));
-                } else {
-                    mLineDesRect = new Rect(0, 0, mWidth, (int) (2 * mLineHight));
+                if(i!=0) {
+                    topStart = (int) (i * mLineHight)+mStart;
+                    mLineDesRect = new Rect(0,topStart , mWidth, (int) (mLineHight+topStart));
+                }else {
+                    mLineDesRect = new Rect(0,0 , mWidth, (int) (mLineHight+mStart));
                 }
-//                AppLog.print(TAG, mLineHight + " topStart:  " + topStart);
+                AppLog.print(TAG, (int) (mLineHight * (1 + i)) + " topStart:  " + topStart);
                 canvas.drawBitmap(mLineBitmap, mLineSrcRect, mLineDesRect, null);
             }
         }
+    }
+
+    /**
+     * 字体高度
+     * @param fontSize
+     * @return
+     */
+    private int getFontHeight(float fontSize) {
+        Paint paint = new Paint();
+        paint.setTextSize(fontSize);
+        String text = "测试高度";
+        setText(text);
+        Rect rect = new Rect();
+        paint.getTextBounds(text, 0, text.length(), rect);
+        int hight= (int) (rect.centerY()+mLineHight/2-mSpace);
+        setText("");
+        return hight;
     }
 }
