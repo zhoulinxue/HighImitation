@@ -1,8 +1,5 @@
 package com.zx.network;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 /**
@@ -12,10 +9,10 @@ import java.io.Serializable;
  * Comment: //TODO
  * Date: 2018-11-12 13:53
  */
-public class NetBean<T> implements Serializable {
+public class NetBean<T> implements Serializable{
     private int code;
     private T data;
-    private Object error;
+    private Error error;
     private int level;
     private String msg;
 
@@ -35,11 +32,11 @@ public class NetBean<T> implements Serializable {
         this.data = data;
     }
 
-    public Object getError() {
+    public Error getError() {
         return error;
     }
 
-    public void setError(Object error) {
+    public void setError(Error error) {
         this.error = error;
     }
 

@@ -1,7 +1,7 @@
 package com.zx.network;
 
-import com.zx.api.api.BaseView;
-import com.zx.api.netWork.NetRequestCallBack;
+import com.zx.api.api.mvp.BaseView;
+import com.zx.api.api.netWork.NetRequestCallBack;
 
 /**
  * Name: BaseViewCallBack

@@ -2,7 +2,7 @@ package com.zx.network.OKHttp;
 
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.Response;
-import com.zx.api.utils.AppLog;
+import com.zx.api.api.utils.AppLog;
 
 /**
  * Name: CommonInterceptor

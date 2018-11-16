@@ -1,6 +1,6 @@
 package com.zx.mvplibrary.presenter;
 
-import com.zx.api.netWork.NetRequest;
+import com.zx.api.api.netWork.NetRequest;
 
 /**
  * Copyright (C), 2015-2018
@@ -12,7 +12,7 @@ import com.zx.api.netWork.NetRequest;
 public interface BasePresenter{
     public void destory();
 
-    public void doNetWork(String requestTag);
+    public  void addRequest(NetRequest request);
 
     public void remove(NetRequest netRequest);
 

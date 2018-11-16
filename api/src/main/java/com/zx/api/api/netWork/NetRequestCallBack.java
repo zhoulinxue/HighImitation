@@ -1,4 +1,4 @@
-package com.zx.api.netWork;
+package com.zx.api.api.netWork;
 
 /**
  * Copyright (C),zhx_2018
@@ -10,6 +10,6 @@ package com.zx.api.netWork;
 public interface NetRequestCallBack<T> {
     public  void onSuccess(T t);
 
-    public  void onError(int responseCode, String RequestCode, String msg);
+    public  void onError(int responseCode, String msg);
 
 }

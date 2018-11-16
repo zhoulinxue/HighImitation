@@ -3,8 +3,9 @@ package com.zx.mvplibrary;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
-import com.zx.api.app.MvpDialog;
+import com.zx.api.api.app.MvpDialog;
 import com.zx.mvplibrary.presenter.BasePresenter;
+
 
 /**
  * Copyright (C), zhx-2018
@@ -36,10 +37,10 @@ public abstract class MVPActivity<P extends BasePresenter> extends BaseActivity 
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onStop() {
         if (mPresenter != null) {
             mPresenter.destory();
         }
+        super.onStop();
     }
 }

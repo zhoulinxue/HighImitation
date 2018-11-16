@@ -1,8 +1,8 @@
-package com.zx.api.api;
+package com.zx.api.api.mvp;
 
 import android.content.Context;
 
-import com.zx.api.app.MvpDialog;
+import com.zx.api.api.app.MvpDialog;
 
 /**
  * Copyright (C), 2015-2018

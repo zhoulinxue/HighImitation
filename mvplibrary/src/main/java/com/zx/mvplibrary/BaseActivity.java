@@ -4,12 +4,13 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import com.gyf.barlibrary.BarHide;
 import com.gyf.barlibrary.ImmersionBar;
-import com.zx.api.api.BaseView;
-import com.zx.api.app.MvpDialog;
+import com.zx.api.api.mvp.BaseView;
+import com.zx.api.api.app.MvpDialog;
+
+import butterknife.ButterKnife;
 
 /**
  * Copyright (C),zhx_2018
@@ -18,13 +19,14 @@ import com.zx.api.app.MvpDialog;
  * Date: 2018\10\23 0023 21:43
  * Description: 项目基础类
  */
-public abstract class BaseActivity extends AppCompatActivity implements BaseView {
+public abstract class BaseActivity extends InternationalizationActivity implements BaseView {
     protected Handler mHandler;
     private MvpDialog mDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
         mHandler = new Handler();
         mDialog = onCreatCustomDialog();
         //设置布局文件
@@ -45,6 +47,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
      * @return 布局 xml
      */
     protected abstract int initLayout();
+
     /**
      * 初始化布局
      */
@@ -64,6 +67,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         super.onDestroy();
         ImmersionBar.with(this).destroy();
     }
+
     @Override
     public Context getContext() {
         return this;

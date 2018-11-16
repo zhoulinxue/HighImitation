@@ -1,9 +1,8 @@
 package com.zx.mvplibrary.presenter;
 
-import com.xgsb.datafactory.bean.User;
-import com.zx.api.api.BaseView;
-import com.zx.api.netWork.NetRequest;
-import com.zx.network.OKHttp.BaseRequest;
+import com.zx.api.api.mvp.BaseView;
+import com.zx.api.api.netWork.NetRequest;
+import com.zx.api.api.utils.AppLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,8 @@ import java.util.List;
  * Date: 2018\10\23 0023 19:41
  * Description: mvp presenter 基类 主要实现 网络请求的 添加及移除逻辑
  */
-public abstract class BasePresenterImpl<T extends BaseView> implements BasePresenter{
+public abstract class BasePresenterImpl<T extends BaseView> implements BasePresenter {
+    private final String TAG=BasePresenterImpl.class.getSimpleName();
     List<NetRequest> netRequests = new ArrayList<>();
     protected T mView;
 
@@ -31,20 +31,19 @@ public abstract class BasePresenterImpl<T extends BaseView> implements BasePrese
         netRequests.clear();
     }
 
-    protected  NetRequest creatRequest(String requestTag){
-        return new BaseRequest<User>(mView,requestTag);
-    };
-
     @Override
-    public void doNetWork(String requestTag) {
-        NetRequest request=creatRequest(requestTag);
-        netRequests.add(request);
+    public void addRequest(NetRequest request) {
+        if (request != null) {
+            netRequests.add(request);
+        }else {
+            AppLog.print(TAG,"bad_request");
+        }
     }
 
     @Override
     public void remove(NetRequest netRequest) {
-        if (netRequest != null&&!netRequest.isDestoryed()) {
-            netRequest.destory();
+        if (netRequest != null && !netRequest.isDestoryed()) {
+            netRequest.cancel();
         }
     }
 }

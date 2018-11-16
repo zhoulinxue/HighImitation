@@ -1,4 +1,4 @@
-package com.zx.api.netWork;
+package com.zx.api.api.netWork;
 
 /**
  * Copyright (C), 2015-2018
@@ -10,8 +10,7 @@ package com.zx.api.netWork;
 public interface NetRequest {
     public boolean isDestoryed();
 
-    public void destory();
+    public void cancel();
 
-    public void start(String... param);
-
+    public void start();
 }

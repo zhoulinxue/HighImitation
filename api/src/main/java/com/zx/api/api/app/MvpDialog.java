@@ -1,4 +1,4 @@
-package com.zx.api.app;
+package com.zx.api.api.app;
 
 /**
  * Copyright (C), 2015-2018

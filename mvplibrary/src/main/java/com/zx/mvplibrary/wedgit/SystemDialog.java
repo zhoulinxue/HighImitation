@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.zx.api.app.MvpDialog;
+import com.zx.api.api.app.MvpDialog;
 import com.zx.mvplibrary.R;
 
 /**

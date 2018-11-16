@@ -1,1 +1,1 @@
-include ':app', ':mvplibrary', ':network', ':api', ':datafactory'
+include ':app', ':mvplibrary', ':network', ':api', ':datafactory', ':pictruemodel'
