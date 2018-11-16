@@ -28,7 +28,7 @@ public class BaseViewCallBack<T> implements NetRequestCallBack {
     }
 
     @Override
-    public void onError(int responseCode, String RequestCode, String msg) {
+    public void onError(int responseCode, String msg) {
         if(mBaseView!=null){
             mBaseView.onError(mRequestCode,msg);
         }

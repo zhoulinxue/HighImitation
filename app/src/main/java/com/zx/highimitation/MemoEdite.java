@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.ViewTreeObserver;
 
-import com.zx.api.utils.AppLog;
+import com.zx.api.api.utils.AppLog;
 
 /**
  * Name: MemoEdite
@@ -22,45 +22,47 @@ import com.zx.api.utils.AppLog;
  * Comment: //TODO
  * Date: 2018-11-16 00:14
  */
-public class MemoEdite extends AppCompatEditText{
-    private final String TAG=MemoEdite.class.getSimpleName();
+public class MemoEdite extends AppCompatEditText {
+    private final String TAG = MemoEdite.class.getSimpleName();
     private float mLineHight;
     private int mWidth;
     private int mHight;
     private int mLines;
     private Bitmap mLineBitmap;
-    private Rect mLineSrcRect , mLineDesRect;
+    private Rect mLineSrcRect, mLineDesRect;
+
     public MemoEdite(Context context) {
         super(context);
     }
 
     public MemoEdite(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context,attrs);
+        init(context, attrs);
     }
 
     public MemoEdite(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context,attrs);
+        init(context, attrs);
     }
-    private  void init(Context context,AttributeSet a){
+
+    private void init(Context context, AttributeSet a) {
         //命名空间（别告诉我不熟悉）
         String namespace = "http://schemas.android.com/apk/res/android";
         //获取属性中设置的最大长度
-       int textSize = a.getAttributeIntValue(namespace, "textSize", 14);
+        int textSize = a.getAttributeIntValue(namespace, "textSize", 14);
 
-        mLineHight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, textSize,context.getResources().getDisplayMetrics());
+        mLineHight = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, textSize, context.getResources().getDisplayMetrics());
 
-        mLineBitmap= BitmapFactory.decodeResource(getResources(),R.mipmap.line_p);
-        mLineSrcRect=new Rect(0,0,mLineBitmap.getWidth(),mLineBitmap.getHeight());
-        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(){
+        mLineBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.line_p);
+        mLineSrcRect = new Rect(0, 0, mLineBitmap.getWidth(), mLineBitmap.getHeight());
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
-            public  void  onGlobalLayout() {
+            public void onGlobalLayout() {
                 getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                  mHight =getMeasuredHeight();
-                  mWidth =getMeasuredWidth();
-                mLines= (int) ((mHight-(getPaddingTop()+getPaddingBottom()))/mLineHight);
-                AppLog.print(TAG,mWidth+"!!!"+mHight+"!!!"+mLines);
+                mHight = getMeasuredHeight();
+                mWidth = getMeasuredWidth();
+                mLines = (int) ((mHight - (getPaddingTop() + getPaddingBottom())) / mLineHight);
+                AppLog.print(TAG, mWidth + "!!!" + mHight + "!!!" + mLines);
             }
         });
     }
@@ -68,18 +70,18 @@ public class MemoEdite extends AppCompatEditText{
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        for(int i=0;i<mLines;i++){
-            int topStart=0;
-                if(topStart<mHight) {
-            if(i!=0) {
-                 topStart = 2 * (int) (i * mLineHight);
-                mLineDesRect = new Rect(0, topStart, mWidth, (int) (topStart+2*mLineHight));
-            }else {
-                mLineDesRect = new Rect(0, 0, mWidth, (int) (2*mLineHight));
-            }
-                    AppLog.print(TAG,mLineHight+" topStart:  "+topStart);
-            canvas.drawBitmap(mLineBitmap, mLineSrcRect, mLineDesRect, null);
+        for (int i = 0; i < mLines; i++) {
+            int topStart = 0;
+            if (topStart < mHight) {
+                if (i != 0) {
+                    topStart = 2 * (int) (i * mLineHight);
+                    mLineDesRect = new Rect(0, topStart, mWidth, (int) (topStart + 2 * mLineHight));
+                } else {
+                    mLineDesRect = new Rect(0, 0, mWidth, (int) (2 * mLineHight));
                 }
+//                AppLog.print(TAG, mLineHight + " topStart:  " + topStart);
+                canvas.drawBitmap(mLineBitmap, mLineSrcRect, mLineDesRect, null);
+            }
         }
     }
 }
