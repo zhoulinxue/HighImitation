@@ -20,7 +20,6 @@ public class MemoMainActivity extends BaseActivity{
 
     @Override
     protected void onCreateView() {
-//        ButterKnife.bind(this);
         mMemoEdite.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
