@@ -3,6 +3,7 @@ package com.zx.highimitation;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.Toast;
 
 import com.zx.mvplibrary.BaseActivity;
 
@@ -28,7 +29,7 @@ public class MemoMainActivity extends BaseActivity{
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
+                showToast(charSequence.toString());
             }
 
             @Override
@@ -36,6 +37,7 @@ public class MemoMainActivity extends BaseActivity{
 
             }
         });
+        mMemoEdite.requestFocus();
     }
 
     @Override

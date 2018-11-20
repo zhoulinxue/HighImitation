@@ -9,6 +9,7 @@ import com.gyf.barlibrary.BarHide;
 import com.gyf.barlibrary.ImmersionBar;
 import com.zx.api.api.mvp.BaseView;
 import com.zx.api.api.app.MvpDialog;
+import com.zx.api.api.utils.AppLog;
 
 import butterknife.ButterKnife;
 
@@ -22,6 +23,7 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends InternationalizationActivity implements BaseView {
     protected Handler mHandler;
     private MvpDialog mDialog;
+    private final String TAG=BaseActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -81,6 +83,7 @@ public abstract class BaseActivity extends InternationalizationActivity implemen
 
     @Override
     public void showToast(String msg) {
+        AppLog.print(TAG,msg);
         mHandler.post(new ToastRunable(this, msg));
     }
 

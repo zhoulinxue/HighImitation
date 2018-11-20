@@ -57,7 +57,6 @@ public class MemoEdite extends AppCompatEditText {
     }
 
     private void init(Context context, AttributeSet a) {
-
         //获取属性中设置的最大长度
         mTextSize = a.getAttributeIntValue(ANDROID_NAMESPACE, TEXT_SIZE, DEFAULT_TEXT_SIZE);
         int lineSpace = a.getAttributeIntValue(ANDROID_NAMESPACE, LINE_SPACE, DEFAULT_LINE_SPACE);

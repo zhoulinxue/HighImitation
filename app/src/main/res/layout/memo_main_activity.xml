@@ -21,8 +21,8 @@
 
             <com.zx.highimitation.MemoEdite
                 android:id="@+id/test_edit"
-                android:layout_width="match_parent"
-                android:layout_height="1000dp"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
                 android:gravity="left"
                 android:lineSpacingExtra="10dp"
                 android:paddingLeft="28dp"

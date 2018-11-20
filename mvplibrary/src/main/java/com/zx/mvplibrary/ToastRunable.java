@@ -23,9 +23,9 @@ public class ToastRunable implements Runnable {
 
     @Override
     public void run() {
-        if (!MvpUtils.isAppRunningForeground(mContext)) {
+        if (MvpUtils.isAppRunningForeground(mContext)) {
             //app 处于后台时 不显示提示信息
-            Toast.makeText(mContext, mToastMsg, Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, mToastMsg, Toast.LENGTH_SHORT).show();
         }
     }
 }
